@@ -1,6 +1,7 @@
 import { loginAPI } from "@/apis/user";
 import { ref } from "vue";
 import { defineStore } from "pinia";
+import { useCatStore } from "@/stores/catr";
 
 export const useUserStore = defineStore("user", () => {
   const userInfo = ref({});
@@ -13,6 +14,7 @@ export const useUserStore = defineStore("user", () => {
   };
   const clearUserInfo = () => {
     userInfo.value = {};
+    useCatStore().clearCart()
   };
   return { userInfo, getUserInfo ,clearUserInfo};
 },

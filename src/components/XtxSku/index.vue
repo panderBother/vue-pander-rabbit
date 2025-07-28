@@ -137,6 +137,7 @@ export default {
           specsText: sku.specs.reduce((p, n) => `${p} ${n.name}：${n.valueName}`, '').trim()
         })
       } else {
+        console.log('没有找到对应的sku')
         emit('change', {})
       }
     }

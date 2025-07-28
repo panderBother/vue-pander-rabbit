@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/user'
+import { useCatStore } from '@/stores/catr'
 import router from '@/router'
 const loginref = ref(null)
 
@@ -31,6 +32,8 @@ const login= async()=>{
     account:loginForm.value.account,
     password:loginForm.value.password
   })
+    useCatStore().mergeCartList()
+    useCatStore().updateNewCartList()
     ElMessage.success('登录成功')
     router.replace('/')
 }
